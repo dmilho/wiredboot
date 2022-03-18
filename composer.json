@@ -1,0 +1,41 @@
+{
+    "name": "dmilho/wiredboot",
+    "description": ":package_description",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Author Name",
+            "email": "author@email.com",
+            "homepage": "http://author.com"
+        }
+    ],
+    "homepage": "https://github.com/dmilho/wiredboot",
+    "keywords": ["Laravel", "Wiredboot"],
+    "require": {
+        "illuminate/support": "~9"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~9.0",
+        "orchestra/testbench": "v7.1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Dmilho\\Wiredboot\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Dmilho\\Wiredboot\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Dmilho\\Wiredboot\\WiredbootServiceProvider"
+            ],
+            "aliases": {
+                "Wiredboot": "Dmilho\\Wiredboot\\Facades\\Wiredboot"
+            }
+        }
+    }
+}
