@@ -1,6 +1,6 @@
 {
     "name": "dmilho/wiredboot",
-    "description": ":package_description",
+    "description": "Quickly scaffold Bootstrap 5 components using Laravel/Livewire.",
     "license": "MIT",
     "authors": [
         {
