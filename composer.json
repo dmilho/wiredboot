@@ -4,9 +4,9 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Author Name",
-            "email": "author@email.com",
-            "homepage": "http://author.com"
+            "name": "David Milho",
+            "email": "dmilho.dev@email.com",
+            "homepage": "https://github.com/dmilho/wiredboot"
         }
     ],
     "homepage": "https://github.com/dmilho/wiredboot",
