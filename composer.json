@@ -39,9 +39,9 @@
         }
     },
 "scripts": {
-        "post-install-cmd": [
-            "php artisan vendor:publish --tag=config --ansi --force",
-            "php artisan vendor:publish --tag=views --ansi --force"
+        "post-autoload-dump": [
+            "@php artisan vendor:publish --tag=config --ansi --force",
+            "@php artisan vendor:publish --tag=views --ansi --force"
         ]
     }
 }
