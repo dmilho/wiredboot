@@ -80,9 +80,9 @@ __DIR__.'/../config/wiredboot.php' => config_path('wiredboot.php'),
 ], 'wiredboot.config');
 
 // Publishing the views.
-/*$this->publishes([
-__DIR__.'/../resources/views' => base_path('resources/views/vendor/dmilho'),
-], 'wiredboot.views');*/
+$this->publishes([
+__DIR__.'/../resources/views' => base_path('resources/views'),
+], 'wiredboot.views');
 
 // Publishing assets.
 /*$this->publishes([
