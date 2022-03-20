@@ -15,37 +15,20 @@ class WiredbootServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Blade::directive('wiredboot', function ($expression) {
-            // dump($expression);
-            // data from inside @wiredboot()
-            // $fromDirective = explode(',',$expression);
-
-            // Set attributes
-            // EX: @wiredboot('component name', [array of properties to pass through])
-            // $props = "";
-
-            // Check attributes exists and set $props
-            // if (array_key_exists(1, $fromDirective)) {
-            //     $props = $fromDirective[1];
-            // }
-
             // trim single quote and set component name
             $name = trim($expression, "'");
+            return "<?= resolve('App\Http\Wiredboot\\{$name}'); ?>";
+        });
+        // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'dmilho');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'dmilho');
+        // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        // $this->loadRoutesFrom(__DIR__.'/routes.php');
 
-            /* return "<?= resolve('App\Http\Wiredboot\\{$name}')->loadView({$props}); ?>"; */
-return "
-<?= resolve('App\Http\Wiredboot\\{$name}'); ?>";
-
-});
-// $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'dmilho');
-// $this->loadViewsFrom(__DIR__.'/../resources/views', 'dmilho');
-// $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-// $this->loadRoutesFrom(__DIR__.'/routes.php');
-
-// Publishing is only necessary when using the CLI.
-if ($this->app->runningInConsole()) {
-$this->bootForConsole();
-}
-}
+        // Publishing is only necessary when using the CLI.
+        if ($this->app->runningInConsole()) {
+        $this->bootForConsole();
+        }
+    }
 
 /**
 * Register any package services.
@@ -81,9 +64,9 @@ __DIR__.'/../resources/views' => base_path(path: 'resources/views'),
 ], 'config');
 
 // Publishing the views.
-$this->publishes([
-__DIR__.'/../resources/views' => base_path('resources/views'),
-], 'views');
+// $this->publishes([
+// __DIR__.'/../resources/views' => base_path('resources/views'),
+// ], 'views');
 
 // Publishing assets.
 /*$this->publishes([
