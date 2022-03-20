@@ -37,11 +37,11 @@
                 "Wiredboot": "Dmilho\\Wiredboot\\Facades\\Wiredboot"
             }
         }
-    },
-"scripts": {
-        "post-autoload-dump": [
-            "@php artisan vendor:publish --tag=config --ansi --force",
-            "@php artisan vendor:publish --tag=views --ansi --force"
-        ]
     }
+// "scripts": {
+//         "post-autoload-dump": [
+//             "@php artisan vendor:publish --tag=config --ansi --force",
+//             "@php artisan vendor:publish --tag=views --ansi --force"
+//         ]
+//     }
 }
