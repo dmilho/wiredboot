@@ -71,6 +71,8 @@ abstract class Wiredboot
 
     public function __toString()
     {
+        // dd(__DIR__);
+        // dd(resource_path());
         return $this->view()->with( $this->buildViewData() )->__toString();
     }
 }
