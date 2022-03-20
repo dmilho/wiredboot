@@ -77,7 +77,7 @@ protected function bootForConsole(): void
 // Publishing the configuration file.
 $this->publishes([
 __DIR__.'/../config/wiredboot.php' => config_path(path: 'wiredboot.php'),
-__DIR__.'/../resources/views' => base_path('resources/views'),
+// __DIR__.'/../resources/views' => base_path('resources/views'),
 ], 'dmilho');
 
 // Publishing the views.
