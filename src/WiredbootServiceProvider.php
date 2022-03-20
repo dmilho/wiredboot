@@ -64,7 +64,7 @@ __DIR__.'/../config/wiredboot.php' => config_path(path: 'wiredboot.php'),
 
 // Publishing the views.
 $this->publishes([
-__DIR__.'/../resources/views' => base_path('resources/views'),
+__DIR__.'/resources/views' => base_path('resources/views'),
 ], 'views');
 
 // Publishing assets.
