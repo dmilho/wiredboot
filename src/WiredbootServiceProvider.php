@@ -37,7 +37,7 @@ return "
 
 });
 // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'dmilho');
-$this->loadViewsFrom(__DIR__.'/../resources/views', 'dmilho');
+// $this->loadViewsFrom(__DIR__.'/../resources/views', 'dmilho');
 // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 // $this->loadRoutesFrom(__DIR__.'/routes.php');
 
@@ -76,13 +76,13 @@ protected function bootForConsole(): void
 {
 // Publishing the configuration file.
 $this->publishes([
-__DIR__.'/../config/wiredboot.php' => config_path('wiredboot.php'),
+__DIR__.'/../config/wiredboot.php' => config_path(path: 'wiredboot.php'),
 ], 'wiredboot.config');
 
 // Publishing the views.
-$this->publishes([
-__DIR__.'/../resources/views' => base_path('resources/views'),
-], 'wiredboot.views');
+// $this->publishes([
+// __DIR__.'/../resources/views' => base_path('resources/views/dmilho'),
+// ], 'wiredboot.views');
 
 // Publishing assets.
 /*$this->publishes([
