@@ -26,23 +26,10 @@ class WiredbootServiceProvider extends ServiceProvider
         // $this->loadRoutesFrom(__DIR__.'/routes.php');
 
         // Publishing is only necessary when using the CLI.
-        // if ($this->app->runningInConsole()) {
-        //     $this->bootForConsole();
-        // }
-
         if ($this->app->runningInConsole()) {
-        // Publishing the views.
-        $this->publishes([
-            __DIR__.'/../resources/views' => base_path('resources/views/vendor/dmilho'),
-        ], 'wiredboot.views');
+            $this->bootForConsole();
         }
 
-
-        // if ($this->app->runningInConsole()) {
-        //     $this->publishes([
-        //         __DIR__ . '/../resources/svg' => public_path('vendor/blade-simple-icons'),
-        //     ], 'blade-simple-icons');
-        // }
     }
 
     /**
@@ -80,7 +67,7 @@ class WiredbootServiceProvider extends ServiceProvider
         // Publishing the views.
         $this->publishes([
             __DIR__.'/../resources/views' => base_path('resources/views/vendor/dmilho'),
-        ], 'wiredboot.views');
+        ], 'views');
 
         // Publishing assets.
         /*$this->publishes([
