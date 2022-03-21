@@ -18,6 +18,7 @@ class WiredbootServiceProvider extends ServiceProvider
             // trim single quote and set component name
             $name = trim($expression, "'");
             return "<?= resolve('App\Http\Wiredboot\\{$name}'); ?>";
+
         });
         // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'dmilho');
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'dmilho');
@@ -25,59 +26,73 @@ class WiredbootServiceProvider extends ServiceProvider
         // $this->loadRoutesFrom(__DIR__.'/routes.php');
 
         // Publishing is only necessary when using the CLI.
+        // if ($this->app->runningInConsole()) {
+        //     $this->bootForConsole();
+        // }
+
         if ($this->app->runningInConsole()) {
-        $this->bootForConsole();
+        // Publishing the views.
+        $this->publishes([
+            __DIR__.'/../resources/views' => base_path('resources/views/vendor/dmilho'),
+        ], 'wiredboot.views');
         }
+
+
+        // if ($this->app->runningInConsole()) {
+        //     $this->publishes([
+        //         __DIR__ . '/../resources/svg' => public_path('vendor/blade-simple-icons'),
+        //     ], 'blade-simple-icons');
+        // }
     }
 
-/**
-* Register any package services.
-*
-* @return void
-*/
-public function register(): void
-{
-$this->mergeConfigFrom(__DIR__.'/../config/wiredboot.php', 'wiredboot');
-}
+    /**
+     * Register any package services.
+     *
+     * @return void
+     */
+    public function register(): void
+    {
+        $this->mergeConfigFrom(__DIR__.'/../config/wiredboot.php', 'wiredboot');
+    }
 
-/**
-* Get the services provided by the provider.
-*
-* @return array
-*/
-public function provides()
-{
-return ['wiredboot'];
-}
+    /**
+     * Get the services provided by the provider.
+     *
+     * @return array
+     */
+    public function provides()
+    {
+        return ['wiredboot'];
+    }
 
-/**
-* Console-specific booting.
-*
-* @return void
-*/
-protected function bootForConsole(): void
-{
-// Publishing the configuration file.
-$this->publishes([
-__DIR__.'/../config/wiredboot.php' => config_path(path: 'wiredboot.php'),
-], 'config');
+    /**
+     * Console-specific booting.
+     *
+     * @return void
+     */
+    protected function bootForConsole(): void
+    {
+        // Publishing the configuration file.
+        $this->publishes([
+            __DIR__.'/../config/wiredboot.php' => config_path('wiredboot.php'),
+        ], 'wiredboot.config');
 
-// Publishing the views.
-$this->publishes([
-__DIR__.'/resources/views/wiredboot' => resource_path('/views/wiredboot'),
-], 'views');
+        // Publishing the views.
+        $this->publishes([
+            __DIR__.'/../resources/views' => base_path('resources/views/vendor/dmilho'),
+        ], 'wiredboot.views');
 
-// Publishing assets.
-/*$this->publishes([
-__DIR__.'/../resources/assets' => public_path('vendor/dmilho'),
-], 'wiredboot.views');*/
+        // Publishing assets.
+        /*$this->publishes([
+            __DIR__.'/../resources/assets' => public_path('vendor/dmilho'),
+        ], 'wiredboot.views');*/
 
-// Publishing the translation files.
-/*$this->publishes([
-__DIR__.'/../resources/lang' => resource_path('lang/vendor/dmilho'),
-], 'wiredboot.views');*/
+        // Publishing the translation files.
+        /*$this->publishes([
+            __DIR__.'/../resources/lang' => resource_path('lang/vendor/dmilho'),
+        ], 'wiredboot.views');*/
 
-// Registering package commands.
-// $this->commands([]);
-}
+        // Registering package commands.
+        // $this->commands([]);
+    }
 }
