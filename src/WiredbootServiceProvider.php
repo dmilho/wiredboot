@@ -66,7 +66,7 @@ class WiredbootServiceProvider extends ServiceProvider
 
         // Publishing the views.
         $this->publishes([
-            __DIR__.'/../resources/views' => base_path('resources/views/vendor/dmilho'),
+            __DIR__.'/../resources/views' => resources_path('/views/vendor/dmilho'),
         ], 'views');
 
         // Publishing assets.
